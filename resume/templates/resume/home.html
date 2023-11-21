@@ -1,0 +1,92 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="" type="image/x-icon"/>
+        <!-- Icon - IconMonster -->
+        <link rel="stylesheet" href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css"/>
+        <!-- Mumble UI -->
+        <link rel="stylesheet" href="{% static 'uikit/styles/uikit.css' %}"/>
+        <!-- Dev Search UI -->
+        <link rel="stylesheet" href="{% static 'styles/app.css' %}"/>
+
+        <title>Resume Builder App</title>
+    </head>
+    <body>
+
+    <!-- Main Section -->
+    <main class="home">
+        <section class="hero-section text-center">
+            <div class="container container--narrow">
+                <div class="hero-section__box">
+                    <h2>Templates to win <span>recruiters over</span></h2>
+                    <h2>Wide selection of designs.</h2>
+                </div>
+
+
+            </div>
+        </section>
+        <!-- Search Result: DevList -->
+        <section class="devlist">
+            <div class="container">
+                <div class="grid grid--three">
+                    <div class="column card">
+                        <div class="dev">
+                            <a href="{% static 'resume-templates/resume-template-01.html' %}" class="card__body">
+                                <div class="dev__profile">
+                                    <img class="avatar avatar--md" src="{% static 'images/resume-template-01.PNG' %}" alt="image"/>
+                                    <div class="dev__meta">
+                                        <h3>Resume Template - Simple </h3>
+                                        <h5>A simple resume template</h5>
+                                    </div>
+                                </div>
+                                <p class="dev__info">
+                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate, ducimus
+                                    inventore! Sunt,
+                                    veniam veritatis? Veritatis placeat, deleniti iure tempore veniam perspiciatis,
+                                    soluta cupiditate
+                                    animi, exercitationem molestias nam doloremque architecto odit.
+                                </p>
+
+                            </a>
+                        </div>
+                    </div>
+                    <div class="column card">
+                        <div class="dev">
+                            <a href="{% static 'resume-templates/resume-template-02.html' %}" class="card__body">
+                                <div class="dev__profile">
+                                    <img class="avatar avatar--md" src="{% static 'images/resume-template-01.PNG' %}"
+                                         alt="image"/>
+                                    <div class="dev__meta">
+                                        <h3>Resume Template - Modern</h3>
+                                        <h5>A modern resume template</h5>
+                                    </div>
+                                </div>
+                                <p class="dev__info">
+                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate, ducimus
+                                    inventore! Sunt,
+                                    veniam veritatis? Veritatis placeat, deleniti iure tempore veniam perspiciatis,
+                                    soluta cupiditate
+                                    animi, exercitationem molestias nam doloremque architecto odit.
+                                </p>
+
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+    </body>
+{% endblock content %}

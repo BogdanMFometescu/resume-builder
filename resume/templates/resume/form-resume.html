@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+   <main class="formPage my-xl">
+        <div class="content-box">
+            <div class="formWrapper">
+                <a class="backButton" href="#"><i class="im im-angle-left"></i></a>
+                <br>
+                 <h3>CREATE YOUR RESUME  </h3>
+
+                <form class="form" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {%  for field in form %}
+                    <div class="form__field">
+                        <label for="formInput#text">{{ field.label }} </label>
+                            {{ field }}
+                    </div>
+                    {% endfor %}
+
+                    <input class="btn btn--sub btn--lg  my-md" type="submit" value="Save" />
+                </form>
+            </div>
+        </div>
+    </main>
+
+{% endblock content %}

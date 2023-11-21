@@ -1,0 +1,36 @@
+{%  extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+
+<section class="projectsList">
+            <div class="container">
+                <div class="grid grid--three">
+                    {% for resume in resumes %}
+                        <div class="column">
+                            <div class="card project">
+                                <a href="{% url 'resume' resume.id %}" class="project">
+                                    {% if substation.picture %}
+                                        <img class="project__thumbnail"
+                                             src="{{ substation.picture.url }}" alt="Poza locatie"/>
+                                    {% endif %}
+                                    <div class="card__body">
+                                        <h3 class="project__title"> Resume - {{ resume.first_name }} {{ resume.last_name }}</h3>
+                                        <p class="project--rating">
+                                            <span style="font-weight: bold;"> Created on {{ resume.created|date:"d-m-Y" }}</span>
+
+
+
+                                    </div>
+                                </a>
+                            </div>
+
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+{% endblock content %}
+
+
