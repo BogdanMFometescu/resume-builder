@@ -16,12 +16,21 @@
   <link rel="stylesheet" href="{% static 'uikit/styles/uikit.css' %}" />
   <!-- Dev Search UI -->
   <link rel="stylesheet" href="{% static 'styles/app.css' %}" />
+    <script src="https://unpkg.com/htmx.org@1.9.9" integrity="sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX" crossorigin="anonymous"></script>
+
+
 
   <title>Resume Builder App</title>
 </head>
 
+<body>
 {% block content %}
 
-
+<script>
+        document.body.addEventListener('htmx:configRequest', (event) => {
+        event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
+        })
+    </script>
 
 {%  endblock %}
+</body>
