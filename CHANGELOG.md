@@ -48,3 +48,10 @@ Version 0.2.0
 -
 - implemented the pdf export option
 - refactored the html templates 
+
+
+[29.11.2023]
+
+Version 0.2.1
+-
+-fixed the html templates for export-pdf and single-resume
