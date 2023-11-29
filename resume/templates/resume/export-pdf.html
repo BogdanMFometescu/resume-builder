@@ -1,184 +1,165 @@
 {% load static %}
 {% block content %}
-    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            height: 100%;
-        }
-
-        body {
-            min-height: 100%;
-            background: #eee;
-            font-family: "Lato", sans-serif;
-            font-weight: 400;
-            color: #222;
-            font-size: 14px;
-            line-height: 26px;
-            padding-bottom: 50px;
-        }
-
-        .container_res {
-            max-width: 700px;
-            background: #fff;
-            box-shadow: 1px 1px 2px #dad7d7;
-            border-radius: 3px;
-            padding: 40px;
-            margin: 50px auto 0;
-        }
-
-        .header {
-            margin-bottom: 30px;
-        }
-
-        .full-name {
-            font-size: 40px;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-        }
-
-        .first-name {
-            font-weight: 700;
-        }
-
-        .last-name {
-            font-weight: 300;
-        }
-
-        .contact-info {
-            margin-bottom: 20px;
-        }
-
-        .email,
-        .phone {
-            color: #999;
-            font-weight: 300;
-        }
-
-        .separator {
-            height: 10px;
-            display: inline-block;
-            border-left: 2px solid #999;
-            margin: 0 10px;
-        }
-
-        .position {
-            font-weight: bold;
-            display: inline-block;
-            margin-right: 10px;
-            text-decoration: underline;
-        }
-
-        .details {
-            line-height: 20px;
-        }
-
-        .section {
-            margin-bottom: 40px;
-        }
-
-        .section:last-of-type {
-            margin-bottom: 0;
-        }
-
-        .section__title {
-            letter-spacing: 2px;
-            color: #54afe4;
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .section__list-item {
-            margin-bottom: 40px;
-        }
-
-        .section__list-item:last-of-type {
-            margin-bottom: 0;
-        }
-
-        .left,
-        .right {
-            vertical-align: top;
-            display: inline-block;
-        }
-
-        .left {
-            width: 60%;
-        }
-
-        .right {
-            text-align: left;
-            width: 39%;
-        }
-
-        .name {
-            font-weight: bold;
-        }
-
-        a {
-            text-decoration: none;
-            color: #000;
-            font-style: italic;
-        }
-
-        a:hover {
-            text-decoration: underline;
-            color: #000;
-        }
-
-        .skills {
-        }
-
-        .skills__item {
-            margin-bottom: 10px;
-        }
-
-        .skills__item .right {
-
-        }
-
-        input {
-            display: none;
-        }
-
-        label {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            background: #c3def3;
-            border-radius: 20px;
-            margin-right: 3px;
-        }
-
-        input:checked + label {
-            background: #79a9ce;
-        }
-
-        #download-pdf-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        #download-pdf-button:hover {
-            background-color: #0056b3;
-        }
-    </style>
 
 
     {% if resume.resume_template == 'Simple Resume' %}
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
 
-        <link rel="stylesheet" type="text/css" href="{% static 'resume-templates/resume-01.css' %}"/>
+            html {
+                height: 100%;
+            }
+
+            body {
+                min-height: 100%;
+                background: #eee;
+                font-family: "Lato", sans-serif;
+                font-weight: 400;
+                color: #222;
+                font-size: 14px;
+                line-height: 26px;
+                padding-bottom: 50px;
+            }
+
+            .container_res {
+                max-width: 700px;
+                background: #fff;
+                box-shadow: 1px 1px 2px #dad7d7;
+                border-radius: 3px;
+                padding: 40px;
+                margin: 50px auto 0;
+            }
+
+            .full-name {
+                font-size: 40px;
+                text-transform: uppercase;
+                margin-bottom: 5px;
+            }
+
+            .first-name {
+                font-weight: 700;
+            }
+
+            .last-name {
+                font-weight: 300;
+            }
+
+            .contact-info {
+                margin-bottom: 20px;
+            }
+
+            .email,
+            .phone {
+                color: #999;
+                font-weight: 300;
+            }
+
+            .separator {
+                height: 10px;
+                display: inline-block;
+                border-left: 2px solid #999;
+                margin: 0 10px;
+            }
+
+            .position {
+                font-weight: bold;
+                display: inline-block;
+                margin-right: 10px;
+                text-decoration: underline;
+            }
+
+            .details {
+                line-height: 20px;
+            }
+
+            .section {
+                margin-bottom: 40px;
+            }
+
+            .section:last-of-type {
+                margin-bottom: 0;
+            }
+
+            .section__title {
+                letter-spacing: 2px;
+                color: #54afe4;
+                font-weight: bold;
+                margin-bottom: 10px;
+                text-transform: uppercase;
+            }
+
+            .section__list-item {
+                margin-bottom: 40px;
+            }
+
+            .section__list-item:last-of-type {
+                margin-bottom: 0;
+            }
+
+            .left,
+            .right {
+                vertical-align: top;
+                display: inline-block;
+            }
+
+            .left {
+                width: 60%;
+            }
+
+            .right {
+                text-align: right;
+                width: 39%;
+            }
+
+            .name {
+                font-weight: bold;
+            }
+
+            a {
+                text-decoration: none;
+                color: #000;
+                font-style: italic;
+            }
+
+            a:hover {
+                text-decoration: underline;
+                color: #000;
+            }
+
+            .skills {
+            }
+
+            .skills__item {
+                margin-bottom: 10px;
+            }
+
+            .skills__item .right {
+
+            }
+
+            input {
+                display: none;
+            }
+
+            label {
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                background: #c3def3;
+                border-radius: 20px;
+                margin-right: 3px;
+            }
+
+            input:checked + label {
+                background: #79a9ce;
+            }
+
+
+        </style>
         <div class="container_res">
             <div class="headerss">
 
@@ -279,153 +260,209 @@
         </div>
 
 
-
-
-
     {% else %}
-        <head>
 
-            <title>{{ resume.first_name }} | {{ resume.last_name }}, | {{ resume.email }}</title>
-            <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f9f9f9;
+                color: #333;
+                line-height: 1.6;
+                margin: 0;
+                padding: 0;
+            }
 
-            <meta name="keywords" content=""/>
-            <meta name="description" content=""/>
+            .container_res {
+                width: 80%;
+                background-color: #fff;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                border-radius: 10px;
+                margin: 20px auto auto;
+                overflow: hidden;
+            }
 
-            <link rel="stylesheet" type="text/css"
-                  href="https://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" media="all"/>
-            <link rel="stylesheet" type="text/css" href="{% static 'resume-templates/resume-02.css' %}"/>
+            .headerss {
+                text-align: center;
+                margin-bottom: 20px;
+            }
 
-        </head>
+            .full-name {
+                font-size: 36px;
+                font-weight: bold;
+                color: #3498db;
+            }
+
+            .contact-info {
+                font-size: 16px;
+                color: #555;
+                margin-top: 10px;
+            }
+
+            .about {
+                margin-top: 20px;
+            }
+
+            .position {
+                font-size: 24px;
+                font-weight: bold;
+                color: #2ecc71;
+                margin-bottom: 10px;
+            }
+
+            .desc {
+                font-size: 18px;
+                color: #777;
+                line-height: 1.6;
+            }
+
+            .section__list-item {
+                margin-bottom: 20px;
+                border-bottom: 1px solid #ddd;
+                padding-bottom: 10px;
+            }
+
+            .name {
+                font-size: 20px;
+                font-weight: bold;
+                color: #333;
+            }
+
+            .duration {
+                font-size: 14px;
+                color: #888;
+            }
+
+            .section__title {
+                font-size: 28px;
+                font-weight: bold;
+                margin-bottom: 10px;
+                color: #3498db;
+            }
+
+            .skills__item {
+                margin-bottom: 10px;
+            }
+
+            .skills__item .name {
+                font-size: 18px;
+                font-weight: bold;
+                color: #2ecc71;
+            }
+
+            .right {
+                margin-left: 20px;
+            }
+        </style>
 
 
-        <body>
+        <div class="container_res">
+            <div class="headerss">
 
-        <div id="doc2" class="yui-t7">
-            <div id="inner">
+                <div class="full-name">
+                    <span class="first-name">{{ resume.first_name }}</span>
+                    <span class="last-name">{{ resume.last_name }}</span>
+                </div>
+                <div class="contact-info">
+                    <span class="email">Email:{{ resume.email }} </span>
+                    <span class="email-val"></span>
+                    <span class="separator"></span>
+                    <span class="phone">Phone:{{ resume.phone_number }} </span>
 
-                <div id="hd">
-                    <div class="yui-gc">
-                        <div class="yui-u first">
-                            <h1>{{ resume.first_name }}</h1>
-                            <h1>{{ resume.last_name }}</h1>
-                            <h2>Web Designer, Director</h2>
-                        </div>
-
-                        <div class="yui-u">
-                            <div class="contact-info">
-                                <h3><a id="pdf" href="{% url 'make_pdf' pk=resume.pk %}">Download PDF</a></h3>
-                                <h3><a href="">{{ resume.email }}</a></h3>
-                                <h3>{{ resume.phone_number }}</h3>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
-                <div id="bd">
-                    <div id="yui-main">
-                        <div class="yui-b">
 
-                            <div class="yui-gf">
-                                <div class="yui-u first">
-                                    <h2>Profile</h2>
+                <div class="about">
+                    <span class="position">{{ resume.position }} </span>
+                    <span class="desc">
+       {{ resume.bio }}
+      </span>
+                </div>
+            </div>
+
+            <div class="details">
+                <div class="section">
+                    <div class="section__title">Experience</div>
+                    <div class="section__list">
+                        {% for exp in experience %}
+                            <div class="section__list-item">
+                                <div class="left">
+                                    <div class="name">{{ exp.employer_name }}</div>
+                                    <div class="duration">From:{{ exp.start_date }}</div>
+                                    <div class="duration">To:{{ exp.end_date }}</div>
+
                                 </div>
-                                <div class="yui-u">
-                                    <p class="enlarge">
-                                        {{ resume.bio }}
-                                    </p>
+
+                                <div class="right">
+                                    <div class="name">{{ exp.position }}</div>
+                                    <div class="desc">{{ exp.job_description }}</div>
                                 </div>
                             </div>
 
-                            <div class="yui-gf">
-                                <div class="yui-u first">
-                                    <h2>Skills</h2>
-                                </div>
-                                {% for skill in skills %}
-                                    <div class="yui-u">
-
-                                        <div class="talent">
-                                            <h2>{{ skill.skill_name }}</h2>
-                                            <p>{{ skill.skill_description }} </p>
-                                        </div>
-
-
-                                    </div>
-                                {% endfor %}
                             </div>
+                        {% endfor %}
 
-                            <div class="yui-gf">
-
-                                <div class="yui-u first">
-                                    <h2>Experience</h2>
+                </div>
+                <div class="section">
+                    <div class="section__title">Education</div>
+                    <div class="section__list">
+                        {% for edu in education %}
+                            <div class="section__list-item">
+                                <div class="left">
+                                    <div class="name">{{ edu.school_name }}</div>
+                                    <div class="addr">{{ edu.degree }}</div>
+                                    <div class="duration">{{ edu.school_start_date }}</div>
+                                    <div class="duration">{{ edu.school_end_date }}</div>
                                 </div>
-                                {% for exp in experience %}
-                                    <div class="yui-u">
-
-                                        <div class="job">
-                                            <h2>{{ exp.employer_name }}</h2>
-                                            <h3>{{ exp.position }}</h3>
-                                            <h4>{{ exp.start_date }}</h4>
-                                            <h4>{{ exp.end_date }}</h4>
-                                            <p>{{ exp.job_description }} </p>
-                                        </div>
-                                    </div>
-                                {% endfor %}
                             </div>
+                        {% endfor %}
+                    </div>
 
-
-                            <div class="yui-gf">
-
-                                <div class="yui-u first">
-                                    <h2>Projects</h2>
+                </div>
+                <div class="section">
+                    <div class="section__title">Projects</div>
+                    <div class="section__list">
+                        {% for proj in project %}
+                            <div class="section__list-item">
+                                <div class="name">{{ proj.project_name }}</div>
+                                <div class="text">{{ proj.project_description }}
+                                    <div class="duration">Start date: {{ proj.start_date_of_project }} </div>
+                                    <div class="duration">End date: {{ proj.end_date_of_project }}</div>
                                 </div>
-                                {% for proj in project %}
-                                    <div class="yui-u">
-                                        <div class="job">
-                                            <h2>{{ proj.project_name }}</h2>
-                                            <h4>{{ proj.start_date_of_project }}</h4>
-                                            <h4>{{ proj.end_date_of_project }}</h4>
-                                            <h3>{{ proj.project_description }}</h3>
-                                        </div>
-                                    </div>
-                                {% endfor %}
                             </div>
-
-
-                            <div class="yui-gf last">
-                                <div class="yui-u first">
-                                    <h2>Education</h2>
-                                </div>
-                                {% for edu in education %}
-                                    <div class="yui-u">
-                                        <h2>{{ edu.school_name }}</h2>
-                                        <h3>{{ edu.degree }} </h3>
-                                        <h3>{{ edu.school_start_date }} </h3>
-                                        <h3>{{ edu.school_end_date }} </h3>
-
-                                    </div>
-                                {% endfor %}
-                            </div>
-
-
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
+                <div class="section">
+                    <div class="section__title">Skills</div>
+                    <div class="skills">
+                        {% for skill in skills %}
+                            <div class="skills__item">
+                                <div class="left">
+                                    <div class="name">
+                                        {{ skill.skill_name }}
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    {{ skill.skill_description }}
 
-                <div id="ft">
-                    <p>{{ resume.first_name }} {{ resume.last_name }} &mdash; {{ resume.email }}
-                        | {{ resume.phone_number }}
-                    </p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
 
             </div>
-
-
         </div>
 
 
-        </body>
-
-
     {% endif %}
+
+
+
+
+
+
+
 
 {% endblock content %}
