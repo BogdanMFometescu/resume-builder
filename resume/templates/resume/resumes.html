@@ -10,10 +10,6 @@
                         <div class="column">
                             <div class="card project">
                                 <a href="{% url 'resume' resume.id %}" class="project">
-                                    {% if substation.picture %}
-                                        <img class="project__thumbnail"
-                                             src="{{ substation.picture.url }}" alt="Poza locatie"/>
-                                    {% endif %}
                                     <div class="card__body">
                                         <h3 class="project__title"> Resume - {{ resume.first_name }} {{ resume.last_name }}</h3>
                                         <p class="project--rating">

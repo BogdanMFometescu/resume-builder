@@ -1,39 +1,28 @@
 # resume-builder
 Changelog for the resume-builder-app
 
-[21.11.2023]
+[01.12.2023]
 
-Version 0.1.1 
+Version 0.2.2
 -
-- Added whitenoise
-- Added Uikit 
-- Created 2 new methods for Update and Delete Resume in views.py
-- Modified settings.py (added STATIC_ROOT)
+- refactored the changelog
+- refactored the resumes.html (removed redundant code)
+- refactored the home.html (removed the redundant code)
+- refactored the resume-template-01.html
+- refactored the resume-template-02.html
 
-Version 0.1.2 
+
+[29.11.2023]
+
+Version 0.2.1
 -
-- Added new field in models.py (resume_template)
-- Added new resume template in static/resume_templates
-- Removed unused templates and refactored the resume/templates folder
-- Removed templates methods from views.py
-- Added home() method in views.py
-               
-Version 0.1.3
+-fixed the html templates for export-pdf and single-resume
+
+
+Version 0.2.0
 -
-- modified the form-resume.html 
-
-[22.11.2023]
-
-Version 0.1.4
--
-- renamed the fields from models.py 
-- made migrations and cleaned database
-
-
-Version 0.1.5
--
-- added new model for testing formset
-- added section fields in form-resume.html 
+- implemented the pdf export option
+- refactored the html templates 
 
 
 [23.11.2023]
@@ -44,14 +33,52 @@ Version 0.1.6
 - added poetry environment 
 
 
-Version 0.2.0
+Version 0.1.5
 -
-- implemented the pdf export option
-- refactored the html templates 
+- added new model for testing formset
+- added section fields in form-resume.html 
 
 
-[29.11.2023]
+[22.11.2023]
 
-Version 0.2.1
+Version 0.1.4
 -
--fixed the html templates for export-pdf and single-resume
+- renamed the fields from models.py 
+- made migrations and cleaned database
+
+
+
+[21.11.2023]
+
+
+Version 0.1.3
+-
+- modified the form-resume.html 
+
+
+Version 0.1.2 
+-
+- Added new field in models.py (resume_template)
+- Added new resume template in static/resume_templates
+- Removed unused templates and refactored the resume/templates folder
+- Removed templates methods from views.py
+- Added home() method in views.py
+               
+
+
+Version 0.1.1 
+-
+- Added whitenoise
+- Added Uikit 
+- Created 2 new methods for Update and Delete Resume in views.py
+- Modified settings.py (added STATIC_ROOT)
+
+
+
+
+
+
+
+
+
+
