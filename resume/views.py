@@ -4,7 +4,7 @@ from .forms import ResumeForm, ExperienceForm, SkillsForm, EducationForm, Projec
 from django.template.loader import get_template
 from xhtml2pdf import pisa
 from django.http import HttpResponse
-
+from django.shortcuts import get_object_or_404
 
 def home(request):
     return render(request, 'resume/home.html')
@@ -121,14 +121,14 @@ def delete_resume(request, pk):
 
 
 def update_experience(request, pk):
-    updated_experience = Experience.objects.get(id=pk)
+    updated_experience = get_object_or_404(Experience, id=pk)
     form = ExperienceForm(instance=updated_experience)
     if request.method == 'POST':
         form = ExperienceForm(request.POST or None, request.FILES, instance=updated_experience)
         if form.is_valid():
             form.save()
             return redirect('resumes')
-    context = {'form': form}
+    context = {'experience_form': form}
     return render(request, 'resume/form-experience.html', context)
 
 
@@ -151,7 +151,7 @@ def update_education(request, pk):
         if form.is_valid():
             form.save()
             return redirect('resumes')
-    context = {'form': form}
+    context = {'education_form': form}
 
     return render(request, 'resume/form-education.html', context)
 
@@ -176,7 +176,7 @@ def update_skill(request, pk):
             form.save()
             return redirect('resumes')
 
-    context = {'form': form}
+    context = {'skill_form': form}
 
     return render(request, 'resume/form-skill.html', context)
 
@@ -201,7 +201,7 @@ def update_project(request, pk):
             form.save()
             return redirect('resumes')
 
-    context = {'form': form}
+    context = {'project_form': form}
 
     return render(request, 'resume/form-project.html', context)
 

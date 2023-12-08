@@ -67,6 +67,18 @@
                         {% endfor %}
 
                 </div>
+
+                {% for exp in experience %}
+                    <a class="tag tag--pill tag--main settings__btn" href="{% url 'update-experience' exp.id %}"><i
+                            class="im im-edit"></i>
+                        Edit</a>
+                    <a class="tag tag--pill tag--main settings__btn" href="{% url 'delete-experience' exp.id %}"><i
+                            class="im im-x-mark-circle-o"></i>
+                        Delete</a>
+                {% endfor %}
+
+
+
                 <div class="section">
                     <div class="section__title">Education</div>
                     <div class="section__list">
@@ -81,6 +93,15 @@
                             </div>
                         {% endfor %}
                     </div>
+                    {% for edu in education %}
+                        <a class="tag tag--pill tag--main settings__btn" href="{% url 'update-education' edu.id %}"><i
+                                class="im im-edit"></i>
+                            Edit</a>
+                        <a class="tag tag--pill tag--main settings__btn" href="{% url 'delete-education' edu.id %}"><i
+                                class="im im-x-mark-circle-o"></i>
+                            Delete</a>
+                    {% endfor %}
+
 
                 </div>
                 <div class="section">
@@ -97,6 +118,16 @@
                         {% endfor %}
                     </div>
                 </div>
+                {% for proj in project %}
+                    <a class="tag tag--pill tag--main settings__btn" href="{% url 'update-project' proj.id %}"><i
+                            class="im im-edit"></i>
+                        Edit</a>
+                    <a class="tag tag--pill tag--main settings__btn" href="{% url 'delete-project' proj.id %}"><i
+                            class="im im-x-mark-circle-o"></i>
+                        Delete</a>
+                {% endfor %}
+
+
                 <div class="section">
                     <div class="section__title">Skills</div>
                     <div class="skills">
@@ -116,6 +147,18 @@
                         {% endfor %}
                     </div>
                 </div>
+                {% for skill in skills %}
+                    <a class="tag tag--pill tag--main settings__btn" href="{% url 'update-skill' skill.id %}"><i
+                            class="im im-edit"></i>
+                        Edit</a>
+                    <a class="tag tag--pill tag--main settings__btn" href="{% url 'delete-skill' skill.id %}"><i
+                            class="im im-x-mark-circle-o"></i>
+                        Delete</a>
+                {% endfor %}
+
+                <br>
+                <br>
+
                 <a href="{% url 'make_pdf' pk=resume.pk %}" class="btn btn--sub btn--lg  my-md"
                    id="download-pdf-button">Download PDF</a>
 

@@ -4,11 +4,12 @@ Changelog for the resume-builder-app
 
 [08.12.2023]
 
-Version 0.2.1
+Version 0.2.3
 -
 
 - implemented the edit/delete functionality for the resume
 - added views and url paths for updating/deleting experience, skills, education,projects
+- fixed templates for simple resume, added functionality for edit/delete
 
 [01.12.2023]
 
