@@ -1,25 +1,25 @@
 # resume-builder
-Changelog for the resume-builder-app
 
+Changelog for the resume-builder-app
 
 [08.12.2023]
 
 Version 0.2.1
 -
+
 - implemented the edit/delete functionality for the resume
-
-
+- added views and url paths for updating/deleting experience, skills, education,projects
 
 [01.12.2023]
 
 Version 0.2.2
 -
+
 - refactored the changelog
 - refactored the resumes.html (removed redundant code)
 - refactored the home.html (removed the redundant code)
 - refactored the resume-template-01.html
 - refactored the resume-template-02.html
-
 
 [29.11.2023]
 
@@ -30,55 +30,54 @@ Version 0.2.1
 
 Version 0.2.0
 -
-- implemented the pdf export option
-- refactored the html templates 
 
+- implemented the pdf export option
+- refactored the html templates
 
 [23.11.2023]
 
 Version 0.1.6
 -
-- refactored the models.py module
-- added poetry environment 
 
+- refactored the models.py module
+- added poetry environment
 
 Version 0.1.5
 -
-- added new model for testing formset
-- added section fields in form-resume.html 
 
+- added new model for testing formset
+- added section fields in form-resume.html
 
 [22.11.2023]
 
 Version 0.1.4
 -
-- renamed the fields from models.py 
+
+- renamed the fields from models.py
 - made migrations and cleaned database
-
-
 
 [21.11.2023]
 
 
 Version 0.1.3
 -
-- modified the form-resume.html 
 
+- modified the form-resume.html
 
-Version 0.1.2 
+Version 0.1.2
 -
+
 - Added new field in models.py (resume_template)
 - Added new resume template in static/resume_templates
 - Removed unused templates and refactored the resume/templates folder
 - Removed templates methods from views.py
 - Added home() method in views.py
-               
 
-
-Version 0.1.1 
+Version 0.1.1
 -
+
 - Added whitenoise
-- Added Uikit 
+- Added Uikit
 - Created 2 new methods for Update and Delete Resume in views.py
 - Modified settings.py (added STATIC_ROOT)
 

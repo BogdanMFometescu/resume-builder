@@ -33,6 +33,14 @@
       </span>
                 </div>
             </div>
+            <a class="tag tag--pill tag--main settings__btn" href="{% url 'update' resume.id %}"><i
+                    class="im im-edit"></i>
+                Edit</a>
+            <a class="tag tag--pill tag--main settings__btn" href="{% url 'delete' resume.id %}"><i
+                    class="im im-x-mark-circle-o"></i>
+                Delete</a>
+
+
             <br>
             <div class="details">
                 <div class="section">
