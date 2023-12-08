@@ -15,7 +15,11 @@
                                         <p class="project--rating">
                                             <span style="font-weight: bold;"> Created on {{ resume.created|date:"d-m-Y" }}</span>
 
-
+                                      <a class="tag tag--pill tag--main settings__btn" href="{% url 'update' resume.id %}"><i class="im im-edit"></i>
+                                        Edit</a>
+                                    <a class="tag tag--pill tag--main settings__btn" href="{% url 'delete' resume.id %}"><i
+                                            class="im im-x-mark-circle-o"></i>
+                                        Delete</a>
 
                                     </div>
                                 </a>
@@ -26,6 +30,8 @@
                 </div>
             </div>
         </section>
+
+
 
 
 {% endblock content %}

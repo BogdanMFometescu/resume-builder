@@ -33,7 +33,7 @@ def resume(request, pk):
 def create_resume(request):
     form = ResumeForm()
     if request.method == 'POST':
-        form = ResumeForm(request.POST, request.FILES)
+        form = ResumeForm(request.POST or None, request.FILES)
         if form.is_valid():
             form.save()
         else:
@@ -46,7 +46,7 @@ def create_resume(request):
 def add_experience(request):
     experience_form = ExperienceForm()
     if request.method == 'POST':
-        experience_form = ExperienceForm(request.POST, request.FILES)
+        experience_form = ExperienceForm(request.POST or None, request.FILES)
         if experience_form.is_valid():
             experience_form.save()
         else:
@@ -59,7 +59,7 @@ def add_experience(request):
 def add_education(request):
     education_form = EducationForm()
     if request.method == 'POST':
-        education_form = EducationForm(request.POST, request.FILES)
+        education_form = EducationForm(request.POST or None, request.FILES)
         if education_form.is_valid():
             education_form.save()
         else:
@@ -72,7 +72,7 @@ def add_education(request):
 def add_project(request):
     project_form = ProjectsForm()
     if request.method == 'POST':
-        project_form = ProjectsForm(request.POST, request.FILES)
+        project_form = ProjectsForm(request.POST or None, request.FILES)
         if project_form.is_valid():
             project_form.save()
         else:
@@ -85,7 +85,7 @@ def add_project(request):
 def add_skill(request):
     skill_form = SkillsForm()
     if request.method == 'POST':
-        skill_form = SkillsForm(request.POST, request.FILES)
+        skill_form = SkillsForm(request.POST or None, request.FILES)
         if skill_form.is_valid():
             skill_form.save()
         else:
@@ -99,7 +99,7 @@ def update_resume(request, pk):
     updated_resume = Resume.objects.get(id=pk)
     form = ResumeForm(instance=updated_resume)
     if request.method == 'POST':
-        form = ResumeForm(request.POST, request.FILES)
+        form = ResumeForm(request.POST or None, request.FILES, instance=updated_resume)
         if form.is_valid():
             form.save()
         else:
@@ -120,7 +120,7 @@ def delete_resume(request, pk):
     return render(request, 'resume/delete-resume.html', context)
 
 
-def make_pdf(request,pk):
+def make_pdf(request, pk):
     single_resume = Resume.objects.get(id=pk)
     all_experience = Experience.objects.filter(resume=single_resume)
     all_skills = Skills.objects.filter(resume=single_resume)
@@ -146,5 +146,3 @@ def make_pdf(request,pk):
 
 def export_to_pdf(request):
     return render(request, 'resume/export-pdf.html')
-
-

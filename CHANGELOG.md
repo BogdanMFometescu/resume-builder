@@ -1,6 +1,15 @@
 # resume-builder
 Changelog for the resume-builder-app
 
+
+[08.12.2023]
+
+Version 0.2.1
+-
+- implemented the edit/delete functionality for the resume
+
+
+
 [01.12.2023]
 
 Version 0.2.2
