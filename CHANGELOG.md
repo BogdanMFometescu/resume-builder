@@ -2,6 +2,16 @@
 
 Changelog for the resume-builder-app
 
+
+[09.12.2023]
+
+Version 0.2.4
+-
+-added the functionality for each model to be edited and deleted 
+-added the functionality to add experience directly from the html (+ button)
+
+
+
 [08.12.2023]
 
 Version 0.2.3

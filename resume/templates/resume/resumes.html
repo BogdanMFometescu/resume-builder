@@ -1,35 +1,30 @@
-{%  extends 'main.html' %}
+{% extends 'main.html' %}
 {% load static %}
 {% block content %}
 
 
-<section class="projectsList">
-            <div class="container">
-                <div class="grid grid--three">
-                    {% for resume in resumes %}
-                        <div class="column">
-                            <div class="card project">
-                                <a href="{% url 'resume' resume.id %}" class="project">
-                                    <div class="card__body">
-                                        <h3 class="project__title"> Resume - {{ resume.first_name }} {{ resume.last_name }}</h3>
-                                        <p class="project--rating">
-                                            <span style="font-weight: bold;"> Created on {{ resume.created|date:"d-m-Y" }}</span>
+    <section class="projectsList">
+        <div class="container">
+            <div class="grid grid--three">
+                {% for resume in resumes %}
+                    <div class="column">
+                        <div class="card project">
+                            <a href="{% url 'resume' resume.id %}" class="project">
+                                <div class="card__body">
+                                    <h3 class="project__title"> Resume
+                                        - {{ resume.first_name }} {{ resume.last_name }}</h3>
+                                    <p class="project--rating">
+                                        <span style="font-weight: bold;"> Created on {{ resume.created|date:"d-m-Y" }}</span>
 
-                                      <a class="tag tag--pill tag--main settings__btn" href="{% url 'update' resume.id %}"><i class="im im-edit"></i>
-                                        Edit</a>
-                                    <a class="tag tag--pill tag--main settings__btn" href="{% url 'delete' resume.id %}"><i
-                                            class="im im-x-mark-circle-o"></i>
-                                        Delete</a>
-
-                                    </div>
-                                </a>
-                            </div>
-
+                                </div>
+                            </a>
                         </div>
-                    {% endfor %}
-                </div>
+
+                    </div>
+                {% endfor %}
             </div>
-        </section>
+        </div>
+    </section>
 
 
 

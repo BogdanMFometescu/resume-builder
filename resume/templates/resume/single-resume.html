@@ -1,3 +1,4 @@
+
 {% load static %}
 {% block content %}
 
@@ -9,7 +10,13 @@
         <link rel="stylesheet" href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css"/>
         <!-- Mumble UI -->
         <link rel="stylesheet" href="{% static 'uikit/styles/uikit.css' %}"/>
+
+
+
         <div class="container_res">
+            <a class="tag tag--pill tag--main settings__btn" href="{% url 'resumes' %}">
+                <i class="im im-angle-left"></i> <
+            </a>
             <div class="headerss">
 
                 <div class="full-name">
@@ -44,38 +51,40 @@
             <br>
             <div class="details">
                 <div class="section">
-                    <div class="section__title">Experience</div>
-                    <div class="section__list">
-                        {% for exp in experience %}
-                            <div class="section__list-item">
-                                <div class="left">
-                                    <div class="name">{{ exp.employer_name }}</div>
-                                    <br>
-                                    <div class="duration">From:{{ exp.start_date }}</div>
-                                    <div class="duration">To:{{ exp.end_date }}</div>
+    <div class="section__title">Experience</div>
 
-                                </div>
-
-                                <div class="right">
-                                    <div class="name">{{ exp.position }}</div>
-                                    <div class="desc">{{ exp.job_description }}</div>
-                                    <br>
-                                </div>
-                            </div>
-
-                            </div>
-                        {% endfor %}
-
+    <div class="section__list-item">
+        <div class="left">
+            <a class="tag tag--pill tag--main settings__btn" href="{% url 'add-new-experience' resume.id %}">
+                <i class="im im-plus"></i> +
+            </a>
+        </div>
+    </div>
+    <!-- List of experiences -->
+    <div class="section__list">
+        {% for exp in experience %}
+            <div class="section__list-item">
+                <div class="left">
+                    <div class="name">{{ exp.employer_name }}</div>
+                    <br>
+                    <div class="duration">From:{{ exp.start_date }}</div>
+                    <div class="duration">To:{{ exp.end_date }}</div>
                 </div>
-
-                {% for exp in experience %}
-                    <a class="tag tag--pill tag--main settings__btn" href="{% url 'update-experience' exp.id %}"><i
-                            class="im im-edit"></i>
-                        Edit</a>
-                    <a class="tag tag--pill tag--main settings__btn" href="{% url 'delete-experience' exp.id %}"><i
-                            class="im im-x-mark-circle-o"></i>
-                        Delete</a>
-                {% endfor %}
+                <div class="right">
+                    <div class="name">{{ exp.position }}</div>
+                    <div class="desc">{{ exp.job_description }}</div>
+                    <br>
+                    <a class="tag tag--pill tag--main settings__btn" href="{% url 'update-experience' exp.id %}">
+                        <i class="im im-edit"></i> Edit
+                    </a>
+                    <a class="tag tag--pill tag--main settings__btn" href="{% url 'delete-experience' exp.id %}">
+                        <i class="im im-x-mark-circle-o"></i> Delete
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 
 
 
@@ -89,18 +98,18 @@
                                     <div class="addr">{{ edu.degree }}</div>
                                     <div class="duration">{{ edu.school_start_date }}</div>
                                     <div class="duration">{{ edu.school_end_date }}</div>
+                                    <a class="tag tag--pill tag--main settings__btn"
+                                       href="{% url 'update-education' edu.id %}"><i
+                                            class="im im-edit"></i>
+                                        Edit</a>
+                                    <a class="tag tag--pill tag--main settings__btn"
+                                       href="{% url 'delete-education' edu.id %}"><i
+                                            class="im im-x-mark-circle-o"></i>
+                                        Delete</a>
                                 </div>
                             </div>
                         {% endfor %}
                     </div>
-                    {% for edu in education %}
-                        <a class="tag tag--pill tag--main settings__btn" href="{% url 'update-education' edu.id %}"><i
-                                class="im im-edit"></i>
-                            Edit</a>
-                        <a class="tag tag--pill tag--main settings__btn" href="{% url 'delete-education' edu.id %}"><i
-                                class="im im-x-mark-circle-o"></i>
-                            Delete</a>
-                    {% endfor %}
 
 
                 </div>
@@ -113,19 +122,19 @@
                                 <div class="text">{{ proj.project_description }}
                                     <div class="duration">Start date: {{ proj.start_date_of_project }} </div>
                                     <div class="duration">End date: {{ proj.end_date_of_project }}</div>
+                                    <a class="tag tag--pill tag--main settings__btn"
+                                       href="{% url 'update-project' proj.id %}"><i
+                                            class="im im-edit"></i>
+                                        Edit</a>
+                                    <a class="tag tag--pill tag--main settings__btn"
+                                       href="{% url 'delete-project' proj.id %}"><i
+                                            class="im im-x-mark-circle-o"></i>
+                                        Delete</a>
                                 </div>
                             </div>
                         {% endfor %}
                     </div>
                 </div>
-                {% for proj in project %}
-                    <a class="tag tag--pill tag--main settings__btn" href="{% url 'update-project' proj.id %}"><i
-                            class="im im-edit"></i>
-                        Edit</a>
-                    <a class="tag tag--pill tag--main settings__btn" href="{% url 'delete-project' proj.id %}"><i
-                            class="im im-x-mark-circle-o"></i>
-                        Delete</a>
-                {% endfor %}
 
 
                 <div class="section">
@@ -141,19 +150,22 @@
                                 <br>
                                 <div class="left">
                                     {{ skill.skill_description }}
-
+                                    <br>
+                                    <a class="tag tag--pill tag--main settings__btn"
+                                       href="{% url 'update-skill' skill.id %}"><i
+                                            class="im im-edit"></i>
+                                        Edit</a>
+                                    <a class="tag tag--pill tag--main settings__btn"
+                                       href="{% url 'delete-skill' skill.id %}"><i
+                                            class="im im-x-mark-circle-o"></i>
+                                        Delete</a>
                                 </div>
                             </div>
                         {% endfor %}
                     </div>
                 </div>
                 {% for skill in skills %}
-                    <a class="tag tag--pill tag--main settings__btn" href="{% url 'update-skill' skill.id %}"><i
-                            class="im im-edit"></i>
-                        Edit</a>
-                    <a class="tag tag--pill tag--main settings__btn" href="{% url 'delete-skill' skill.id %}"><i
-                            class="im im-x-mark-circle-o"></i>
-                        Delete</a>
+
                 {% endfor %}
 
                 <br>
@@ -168,13 +180,16 @@
 
 
     {% else %}
-        <link rel="stylesheet" type="text/css" href="{% static 'resume-templates/resume-01.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'resume-templates/resume-02.css' %}"/>
         <link rel="shortcut icon" href="" type="image/x-icon"/>
         <!-- Icon - IconMonster -->
         <link rel="stylesheet" href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css"/>
         <!-- Mumble UI -->
         <link rel="stylesheet" href="{% static 'uikit/styles/uikit.css' %}"/>
         <div class="container_res">
+            <a class="tag tag--pill tag--main settings__btn" href="{% url 'resumes' %}">
+                <i class="im im-angle-left"></i> <
+            </a>
             <div class="headerss">
 
                 <div class="full-name">
@@ -193,10 +208,17 @@
 
                 <div class="about">
                     <span class="position">{{ resume.position }} </span>
-                    <span class="desc">
-       {{ resume.bio }}
-      </span>
+                    <span class="desc">{{ resume.bio }}</span>
                 </div>
+                <div class="header-buttons">
+                    <a class="tag tag--pill tag--main settings__btn" href="{% url 'update' resume.id %}">
+                        <i class="im im-edit"></i> Edit
+                    </a>
+                    <a class="tag tag--pill tag--main settings__btn" href="{% url 'delete' resume.id %}">
+                        <i class="im im-x-mark-circle-o"></i> Delete
+                    </a>
+                </div>
+
             </div>
             <br>
             <div class="details">
@@ -219,7 +241,16 @@
                                     <br>
                                 </div>
                             </div>
-
+                            <div class="right">
+                                <a class="tag tag--pill tag--main settings__btn"
+                                   href="{% url 'update-experience' exp.id %}">
+                                    <i class="im im-edit"></i> Edit
+                                </a>
+                                <a class="tag tag--pill tag--main settings__btn"
+                                   href="{% url 'delete-experience' exp.id %}">
+                                    <i class="im im-x-mark-circle-o"></i> Delete
+                                </a>
+                            </div>
                             </div>
                         {% endfor %}
 
@@ -235,6 +266,17 @@
                                     <div class="duration">{{ edu.school_start_date }}</div>
                                     <div class="duration">{{ edu.school_end_date }}</div>
                                 </div>
+                                <div class="right">
+                                    <a class="tag tag--pill tag--main settings__btn"
+                                       href="{% url 'update-education' edu.id %}">
+                                        <i class="im im-edit"></i> Edit
+                                    </a>
+                                    <a class="tag tag--pill tag--main settings__btn"
+                                       href="{% url 'delete-education' edu.id %}">
+                                        <i class="im im-x-mark-circle-o"></i> Delete
+                                    </a>
+                                </div>
+
                             </div>
                         {% endfor %}
                     </div>
@@ -250,6 +292,18 @@
                                     <div class="duration">Start date: {{ proj.start_date_of_project }} </div>
                                     <div class="duration">End date: {{ proj.end_date_of_project }}</div>
                                 </div>
+                                <div class="right">
+                                    <a class="tag tag--pill tag--main settings__btn"
+                                       href="{% url 'update-project' proj.id %}">
+                                        <i class="im im-edit"></i> Edit
+                                    </a>
+                                    <a class="tag tag--pill tag--main settings__btn"
+                                       href="{% url 'delete-project' proj.id %}">
+                                        <i class="im im-x-mark-circle-o"></i> Delete
+                                    </a>
+                                </div>
+
+
                             </div>
                         {% endfor %}
                     </div>
@@ -267,9 +321,20 @@
                                 <br>
                                 <div class="left">
                                     {{ skill.skill_description }}
-
                                 </div>
                             </div>
+                            <div class="right">
+                                <a class="tag tag--pill tag--main settings__btn"
+                                   href="{% url 'update-skill' skill.id %}">
+                                    <i class="im im-edit"></i> Edit
+                                </a>
+                                <a class="tag tag--pill tag--main settings__btn"
+                                   href="{% url 'delete-skill' skill.id %}">
+                                    <i class="im im-x-mark-circle-o"></i> Delete
+                                </a>
+                            </div>
+
+
                         {% endfor %}
                     </div>
                 </div>

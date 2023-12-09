@@ -6,6 +6,7 @@ from xhtml2pdf import pisa
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 
+
 def home(request):
     return render(request, 'resume/home.html')
 
@@ -96,7 +97,7 @@ def add_skill(request):
 
 
 def update_resume(request, pk):
-    updated_resume = Resume.objects.get(id=pk)
+    updated_resume = get_object_or_404(Resume, id=pk)
     form = ResumeForm(instance=updated_resume)
     if request.method == 'POST':
         form = ResumeForm(request.POST or None, request.FILES, instance=updated_resume)
@@ -110,7 +111,7 @@ def update_resume(request, pk):
 
 
 def delete_resume(request, pk):
-    deleted_resume = Resume.objects.get(id=pk)
+    deleted_resume = get_object_or_404(Resume, id=pk)
     form = ResumeForm(instance=deleted_resume)
     if request.method == 'POST':
         deleted_resume.delete()
@@ -118,6 +119,19 @@ def delete_resume(request, pk):
 
     context = {'object': form}
     return render(request, 'resume/delete-resume.html', context)
+
+
+def add_new_experience(request, pk):
+    new_entry_resume = get_object_or_404(Resume, id=pk)
+    form = ExperienceForm(initial={'resume': new_entry_resume})
+    if request.method == 'POST':
+        form = ExperienceForm(request.POST or None, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('resumes')
+    context = {'experience_form': form, 'resume': new_entry_resume}
+
+    return render(request, 'resume/form-experience.html', context)
 
 
 def update_experience(request, pk):
@@ -128,12 +142,12 @@ def update_experience(request, pk):
         if form.is_valid():
             form.save()
             return redirect('resumes')
-    context = {'experience_form': form}
+    context = {'experience_form': form, }
     return render(request, 'resume/form-experience.html', context)
 
 
 def delete_experience(request, pk):
-    deleted_experience = Experience.objects.get(id=pk)
+    deleted_experience = get_object_or_404(Experience, id=pk)
     form = ExperienceForm(instance=deleted_experience)
     if request.method == 'POST':
         deleted_experience.delete()
@@ -144,7 +158,7 @@ def delete_experience(request, pk):
 
 
 def update_education(request, pk):
-    updated_education = Education.objects.get(id=pk)
+    updated_education = get_object_or_404(Education, id=pk)
     form = EducationForm(instance=updated_education)
     if request.method == 'POST':
         form = EducationForm(request.POST or None, request.FILES, instance=updated_education)
@@ -157,7 +171,7 @@ def update_education(request, pk):
 
 
 def delete_education(request, pk):
-    deleted_education = Education.objects.get(id=pk)
+    deleted_education = get_object_or_404(Education, id=pk)
     form = EducationForm(instance=deleted_education)
     if request.method == 'POST':
         deleted_education.delete()
@@ -168,7 +182,7 @@ def delete_education(request, pk):
 
 
 def update_skill(request, pk):
-    updated_skill = Skills.objects.get(id=pk)
+    updated_skill = get_object_or_404(Skills, id=pk)
     form = SkillsForm(instance=updated_skill)
     if request.method == 'POST':
         form = SkillsForm(request.POST or None, request.FILES, instance=updated_skill)
@@ -182,7 +196,7 @@ def update_skill(request, pk):
 
 
 def delete_skill(request, pk):
-    deleted_skill = Skills.objects.get(id=pk)
+    deleted_skill = get_object_or_404(Skills, id=pk)
     form = SkillsForm(instance=deleted_skill)
     if request.method == 'POST':
         deleted_skill.delete()
@@ -193,7 +207,7 @@ def delete_skill(request, pk):
 
 
 def update_project(request, pk):
-    updated_project = Projects.objects.get(id=pk)
+    updated_project = get_object_or_404(Projects, id=pk)
     form = ProjectsForm(instance=updated_project)
     if request.method == 'POST':
         form = ProjectsForm(request.POST or None, request.FILES, instance=updated_project)
@@ -207,7 +221,7 @@ def update_project(request, pk):
 
 
 def delete_project(request, pk):
-    deleted_project = Projects.objects.get(id=pk)
+    deleted_project = get_object_or_404(Projects, id=pk)
     form = ProjectsForm(instance=deleted_project)
     if request.method == 'POST':
         deleted_project.delete()
