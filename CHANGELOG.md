@@ -7,8 +7,15 @@ Changelog for the resume-builder-app
 
 Version 0.2.4
 -
--added the functionality for each model to be edited and deleted 
--added the functionality to add experience directly from the html (+ button)
+- SIMPLE TEMPLATE HTML 
+- added methods in views.py form adding new education, skills,projects,experience
+- added the urls for the above views
+- added the functionality for each model to be edited and deleted 
+- added the functionality to add experience directly from the html (+ button) 
+- added the functionality to add education directly from the html (+ button) 
+- added the functionality to add projects directly from the html (+ button) 
+- added the functionality to add skills directly from the html (+ button)   
+- added the functionality to add skills directly from the html (+ button) 
 
 
 

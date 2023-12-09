@@ -44,58 +44,6 @@ def create_resume(request):
     return render(request, 'resume/form-resume.html', context)
 
 
-def add_experience(request):
-    experience_form = ExperienceForm()
-    if request.method == 'POST':
-        experience_form = ExperienceForm(request.POST or None, request.FILES)
-        if experience_form.is_valid():
-            experience_form.save()
-        else:
-            print(experience_form.errors)
-        return redirect('resumes')
-    context = {'experience_form': experience_form}
-    return render(request, 'resume/form-experience.html', context)
-
-
-def add_education(request):
-    education_form = EducationForm()
-    if request.method == 'POST':
-        education_form = EducationForm(request.POST or None, request.FILES)
-        if education_form.is_valid():
-            education_form.save()
-        else:
-            print(education_form.errors)
-        return redirect('resumes')
-    context = {'education_form': education_form}
-    return render(request, 'resume/form-education.html', context)
-
-
-def add_project(request):
-    project_form = ProjectsForm()
-    if request.method == 'POST':
-        project_form = ProjectsForm(request.POST or None, request.FILES)
-        if project_form.is_valid():
-            project_form.save()
-        else:
-            print(project_form.errors)
-        return redirect('resumes')
-    context = {'project_form': project_form}
-    return render(request, 'resume/form-project.html', context)
-
-
-def add_skill(request):
-    skill_form = SkillsForm()
-    if request.method == 'POST':
-        skill_form = SkillsForm(request.POST or None, request.FILES)
-        if skill_form.is_valid():
-            skill_form.save()
-        else:
-            print(skill_form.errors)
-        return redirect('resumes')
-    context = {'skill_form': skill_form}
-    return render(request, 'resume/form-skill.html', context)
-
-
 def update_resume(request, pk):
     updated_resume = get_object_or_404(Resume, id=pk)
     form = ResumeForm(instance=updated_resume)
@@ -121,6 +69,19 @@ def delete_resume(request, pk):
     return render(request, 'resume/delete-resume.html', context)
 
 
+def create_experience(request):
+    experience_form = ExperienceForm()
+    if request.method == 'POST':
+        experience_form = ExperienceForm(request.POST or None, request.FILES)
+        if experience_form.is_valid():
+            experience_form.save()
+        else:
+            print(experience_form.errors)
+        return redirect('resumes')
+    context = {'experience_form': experience_form}
+    return render(request, 'resume/form-experience.html', context)
+
+
 def add_new_experience(request, pk):
     new_entry_resume = get_object_or_404(Resume, id=pk)
     form = ExperienceForm(initial={'resume': new_entry_resume})
@@ -130,7 +91,6 @@ def add_new_experience(request, pk):
             form.save()
             return redirect('resumes')
     context = {'experience_form': form, 'resume': new_entry_resume}
-
     return render(request, 'resume/form-experience.html', context)
 
 
@@ -153,8 +113,33 @@ def delete_experience(request, pk):
         deleted_experience.delete()
         return redirect('resumes')
     context = {'object': form}
-
     return render(request, 'resume/delete-resume.html', context)
+
+
+def create_education(request):
+    education_form = EducationForm()
+    if request.method == 'POST':
+        education_form = EducationForm(request.POST or None, request.FILES)
+        if education_form.is_valid():
+            education_form.save()
+        else:
+            print(education_form.errors)
+        return redirect('resumes')
+    context = {'education_form': education_form}
+    return render(request, 'resume/form-education.html', context)
+
+
+def add_new_education(request, pk):
+    new_education = get_object_or_404(Resume, id=pk)
+    form = EducationForm(initial={'resume': new_education})
+    if request.method == 'POST':
+        form = EducationForm(request.POST or None, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('resumes')
+
+    context = {'education_form': form, 'resume': new_education}
+    return render(request, 'resume/form-education.html', context)
 
 
 def update_education(request, pk):
@@ -166,7 +151,6 @@ def update_education(request, pk):
             form.save()
             return redirect('resumes')
     context = {'education_form': form}
-
     return render(request, 'resume/form-education.html', context)
 
 
@@ -177,33 +161,32 @@ def delete_education(request, pk):
         deleted_education.delete()
         return redirect('resumes')
     context = {'object': form}
-
     return render(request, 'resume/delete-resume.html', context)
 
 
-def update_skill(request, pk):
-    updated_skill = get_object_or_404(Skills, id=pk)
-    form = SkillsForm(instance=updated_skill)
+def create_project(request):
+    project_form = ProjectsForm()
     if request.method == 'POST':
-        form = SkillsForm(request.POST or None, request.FILES, instance=updated_skill)
+        project_form = ProjectsForm(request.POST or None, request.FILES)
+        if project_form.is_valid():
+            project_form.save()
+        else:
+            print(project_form.errors)
+        return redirect('resumes')
+    context = {'project_form': project_form}
+    return render(request, 'resume/form-project.html', context)
+
+
+def add_new_project(request, pk):
+    new_project = get_object_or_404(Resume, id=pk)
+    form = ProjectsForm(initial={'resume': new_project})
+    if request.method == 'POST':
+        form = ProjectsForm(request.POST or None, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('resumes')
-
-    context = {'skill_form': form}
-
-    return render(request, 'resume/form-skill.html', context)
-
-
-def delete_skill(request, pk):
-    deleted_skill = get_object_or_404(Skills, id=pk)
-    form = SkillsForm(instance=deleted_skill)
-    if request.method == 'POST':
-        deleted_skill.delete()
-        return redirect('resumes')
-    context = {'object': form}
-
-    return render(request, 'resume/delete-resume.html', context)
+    context = {'project_form': form, 'resume': new_project}
+    return render(request, 'resume/form-project.html', context)
 
 
 def update_project(request, pk):
@@ -216,7 +199,6 @@ def update_project(request, pk):
             return redirect('resumes')
 
     context = {'project_form': form}
-
     return render(request, 'resume/form-project.html', context)
 
 
@@ -227,7 +209,54 @@ def delete_project(request, pk):
         deleted_project.delete()
         return redirect('resumes')
     context = {'object': form}
+    return render(request, 'resume/delete-resume.html', context)
 
+
+def create_skill(request):
+    skill_form = SkillsForm()
+    if request.method == 'POST':
+        skill_form = SkillsForm(request.POST or None, request.FILES)
+        if skill_form.is_valid():
+            skill_form.save()
+        else:
+            print(skill_form.errors)
+        return redirect('resumes')
+    context = {'skill_form': skill_form}
+    return render(request, 'resume/form-skill.html', context)
+
+
+def add_new_skill(request, pk):
+    new_skill = get_object_or_404(Resume, id=pk)
+    form = SkillsForm(initial={'resume': new_skill})
+    if request.method == 'POST':
+        form = SkillsForm(request.POST or None, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('resumes')
+    context = {'skill_form': form, 'resume': new_skill}
+    return render(request, 'resume/form-skill.html', context)
+
+
+def update_skill(request, pk):
+    updated_skill = get_object_or_404(Skills, id=pk)
+    form = SkillsForm(instance=updated_skill)
+    if request.method == 'POST':
+        form = SkillsForm(request.POST or None, request.FILES, instance=updated_skill)
+        if form.is_valid():
+            form.save()
+            return redirect('resumes')
+
+    context = {'skill_form': form}
+    return render(request, 'resume/form-skill.html', context)
+
+
+def delete_skill(request, pk):
+    deleted_skill = get_object_or_404(Skills, id=pk)
+    form = SkillsForm(instance=deleted_skill)
+    if request.method == 'POST':
+        deleted_skill.delete()
+        return redirect('resumes')
+    context = {'object': form}
     return render(request, 'resume/delete-resume.html', context)
 
 

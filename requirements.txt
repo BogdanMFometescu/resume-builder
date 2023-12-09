@@ -1,7 +1,0 @@
-django
-django-dotenv
-psycopg2-binary
-gunicorn
-django-environ
-psycopg2
-whitenoise
