@@ -21,6 +21,10 @@ Version 0.2.5
 
   - refactored the fields from both templates (simple and modern html)   
 
+- modified the README.MD file
+
+[fixed]  - redirect in views.py to the actual resume_id.
+
 
 
 [09.12.2023]
