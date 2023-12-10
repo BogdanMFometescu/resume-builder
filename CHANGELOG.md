@@ -3,19 +3,39 @@
 Changelog for the resume-builder-app
 
 
+[10.12.2023]
+
+Version 0.2.5
+- 
+- MODERN TEMPLATE HTML 
+  - added methods in views.py form adding new education, skills,projects,experience
+  - added the urls for the above views
+  - added the functionality for each model to be edited and deleted 
+  - added the functionality to add experience directly from the html (+ button) 
+  - added the functionality to add education directly from the html (+ button) 
+  - added the functionality to add projects directly from the html (+ button) 
+  - added the functionality to add skills directly from the html (+ button)   
+  - added the functionality to add skills directly from the html (+ button) 
+
+- EXPORT-PDF TEMPLATE HTML
+
+  - refactored the fields from both templates (simple and modern html)   
+
+
+
 [09.12.2023]
 
 Version 0.2.4
 -
 - SIMPLE TEMPLATE HTML 
-- added methods in views.py form adding new education, skills,projects,experience
-- added the urls for the above views
-- added the functionality for each model to be edited and deleted 
-- added the functionality to add experience directly from the html (+ button) 
-- added the functionality to add education directly from the html (+ button) 
-- added the functionality to add projects directly from the html (+ button) 
-- added the functionality to add skills directly from the html (+ button)   
-- added the functionality to add skills directly from the html (+ button) 
+  - added methods in views.py form adding new education, skills,projects,experience
+  - added the urls for the above views
+  - added the functionality for each model to be edited and deleted 
+  - added the functionality to add experience directly from the html (+ button) 
+  - added the functionality to add education directly from the html (+ button) 
+  - added the functionality to add projects directly from the html (+ button) 
+  - added the functionality to add skills directly from the html (+ button)   
+  - added the functionality to add skills directly from the html (+ button) 
 
 
 

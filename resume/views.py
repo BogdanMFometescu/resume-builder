@@ -245,7 +245,6 @@ def update_skill(request, pk):
         if form.is_valid():
             form.save()
             return redirect('resumes')
-
     context = {'skill_form': form}
     return render(request, 'resume/form-skill.html', context)
 

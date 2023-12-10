@@ -67,8 +67,8 @@
                                 <div class="left">
                                     <div class="name">{{ exp.employer_name }}</div>
                                     <br>
-                                    <div class="duration">From:{{ exp.start_date }}</div>
-                                    <div class="duration">To:{{ exp.end_date }}</div>
+                                    <div class="duration">{{ exp.start_date }}-{{ exp.end_date }}</div>
+
                                 </div>
                                 <div class="right">
                                     <div class="name">{{ exp.position }}</div>
@@ -98,13 +98,14 @@
                                 <i class="im im-plus"></i> +
                             </a>
                         </div>
+
+                        <br>
                         {% for edu in education %}
                             <div class="section__list-item">
                                 <div class="left">
                                     <div class="name">{{ edu.school_name }}</div>
                                     <div class="addr">{{ edu.degree }}</div>
-                                    <div class="duration">{{ edu.school_start_date }}</div>
-                                    <div class="duration">{{ edu.school_end_date }}</div>
+                                    <div class="duration">{{ edu.school_start_date }}-{{ edu.school_end_date }}</div>
                                     <a class="tag tag--pill tag--main settings__btn"
                                        href="{% url 'update-education' edu.id %}"><i
                                             class="im im-edit"></i>
@@ -117,9 +118,8 @@
                             </div>
                         {% endfor %}
                     </div>
-
-
                 </div>
+
                 <div class="section">
                     <div class="section__title">Projects</div>
                     <div class="section__list">
@@ -133,8 +133,7 @@
                             <div class="section__list-item">
                                 <div class="name">{{ proj.project_name }}</div>
                                 <div class="text">{{ proj.project_description }}
-                                    <div class="duration">Start date: {{ proj.start_date_of_project }} </div>
-                                    <div class="duration">End date: {{ proj.end_date_of_project }}</div>
+                                    <div class="duration">Start date: {{ proj.start_date_of_project }}-{{ proj.end_date_of_project }} </div>
                                     <a class="tag tag--pill tag--main settings__btn"
                                        href="{% url 'update-project' proj.id %}"><i
                                             class="im im-edit"></i>
@@ -243,15 +242,21 @@
             <div class="details">
                 <div class="section">
                     <div class="section__title">Experience</div>
+                    <div class="left">
+                        <a class="tag tag--pill tag--main settings__btn"
+                           href="{% url 'add-new-experience' resume.id %}">
+                            <i class="im im-plus"></i> +
+                        </a>
+                    </div>
+
+
                     <div class="section__list">
                         {% for exp in experience %}
                             <div class="section__list-item">
                                 <div class="left">
                                     <div class="name">{{ exp.employer_name }}</div>
                                     <br>
-                                    <div class="duration">From:{{ exp.start_date }}</div>
-                                    <div class="duration">To:{{ exp.end_date }}</div>
-
+                                    <div class="duration">From:{{ exp.start_date }}-{{ exp.end_date }} </div>
                                 </div>
 
                                 <div class="right">
@@ -276,14 +281,19 @@
                 </div>
                 <div class="section">
                     <div class="section__title">Education</div>
+                    <div class="left">
+                        <a class="tag tag--pill tag--main settings__btn"
+                           href="{% url 'add-new-education' resume.id %}">
+                            <i class="im im-plus"></i> +
+                        </a>
+                    </div>
                     <div class="section__list">
                         {% for edu in education %}
                             <div class="section__list-item">
                                 <div class="left">
                                     <div class="name">{{ edu.school_name }}</div>
                                     <div class="addr">{{ edu.degree }}</div>
-                                    <div class="duration">{{ edu.school_start_date }}</div>
-                                    <div class="duration">{{ edu.school_end_date }}</div>
+                                    <div class="duration">{{ edu.school_start_date }}-{{ edu.school_end_date }}</div>
                                 </div>
                                 <div class="right">
                                     <a class="tag tag--pill tag--main settings__btn"
@@ -303,13 +313,18 @@
                 </div>
                 <div class="section">
                     <div class="section__title">Projects</div>
+                    <div class="left">
+                        <a class="tag tag--pill tag--main settings__btn"
+                           href="{% url 'add-new-project' resume.id %}">
+                            <i class="im im-plus"></i> +
+                        </a>
+                    </div>
                     <div class="section__list">
                         {% for proj in project %}
                             <div class="section__list-item">
                                 <div class="name">{{ proj.project_name }}</div>
                                 <div class="text">{{ proj.project_description }}
-                                    <div class="duration">Start date: {{ proj.start_date_of_project }} </div>
-                                    <div class="duration">End date: {{ proj.end_date_of_project }}</div>
+                                    <div class="duration">Start date: {{ proj.start_date_of_project }}-{{ proj.end_date_of_project }} </div>
                                 </div>
                                 <div class="right">
                                     <a class="tag tag--pill tag--main settings__btn"
@@ -329,6 +344,12 @@
                 </div>
                 <div class="section">
                     <div class="section__title">Skills</div>
+                    <div class="left">
+                        <a class="tag tag--pill tag--main settings__btn"
+                           href="{% url 'add-new-skill' resume.id %}">
+                            <i class="im im-plus"></i> +
+                        </a>
+                    </div>
                     <div class="skills">
                         {% for skill in skills %}
                             <div class="skills__item">
@@ -357,6 +378,7 @@
                         {% endfor %}
                     </div>
                 </div>
+                <br>
                 <a href="{% url 'make_pdf' pk=resume.pk %}" class="btn btn--sub btn--lg  my-md"
                    id="download-pdf-button">Download PDF</a>
 
