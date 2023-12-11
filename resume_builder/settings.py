@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'resume',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -147,9 +148,8 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/images/'
 
 STATICFILES_DIRS = [BASE_DIR / 'static']
-STATIC_ROOT = os.path.join(BASE_DIR/'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR / 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images/')
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

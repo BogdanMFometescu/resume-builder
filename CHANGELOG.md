@@ -2,6 +2,23 @@
 
 Changelog for the resume-builder-app
 
+[11.12.2023]
+
+Version 0.3.1
+-
+- added signals
+- modified the views.py from resume app
+
+
+[10.12.2023]
+
+Version 0.3.0
+- 
+- added user app 
+- created Profile model
+- created forms for User and Profile
+- refactored the README.md
+
 
 [10.12.2023]
 

@@ -9,6 +9,7 @@ providing a comprehensive platform for resume management.
 
 ## Installation
 
+
 ### Prerequisites
 
 - Python 3.x
