@@ -43,6 +43,17 @@
                                             <h5>{{ profile.location }}</h5>
                                         </div>
                                     </div>
+                                    <p class="dev__info">
+                                        {{ profile.short_intro }}
+                                    </p>
+                                    <div class="dev__skills">
+                                        {% for certificate in profile.certificate_set.all %}
+                                            <span class="tag tag--pill tag--main">
+                    <small>{{ certificate }}</small>
+                  </span>
+                                        {% endfor %}
+                                    </div>
+
                                 </a>
                             </div>
                         </div>

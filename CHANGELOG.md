@@ -8,6 +8,8 @@ Version 0.3.1
 -
 - added signals
 - modified the views.py from resume app
+- fixed the urls links 
+- added the html templates
 
 
 [10.12.2023]

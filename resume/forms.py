@@ -6,6 +6,7 @@ class ResumeForm(ModelForm):
     class Meta:
         model = Resume
         fields = '__all__'
+        exclude = ['owner']
 
     def __init__(self, *args, **kwargs):
         super(ResumeForm, self).__init__(*args, **kwargs)
@@ -20,6 +21,7 @@ class ExperienceForm(ModelForm):
     class Meta:
         model = Experience
         fields = '__all__'
+        exclude = ['owner']
 
     def __init__(self, *args, **kwargs):
         super(ExperienceForm, self).__init__(*args, **kwargs)
@@ -35,6 +37,7 @@ class EducationForm(ModelForm):
     class Meta:
         model = Education
         fields = '__all__'
+        exclude = ['owner']
 
     def __init__(self, *args, **kwargs):
         super(EducationForm, self).__init__(*args, **kwargs)
@@ -49,6 +52,7 @@ class ProjectsForm(ModelForm):
     class Meta:
         model = Projects
         fields = '__all__'
+        exclude = ['owner']
 
     def __init__(self, *args, **kwargs):
         super(ProjectsForm, self).__init__(*args, **kwargs)
@@ -63,6 +67,7 @@ class SkillsForm(ModelForm):
     class Meta:
         model = Skills
         fields = '__all__'
+        exclude = ['owner']
 
     def __init__(self, *args, **kwargs):
         super(SkillsForm, self).__init__(*args, **kwargs)

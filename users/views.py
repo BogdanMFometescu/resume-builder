@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from .models import Profile
+from resume.models import Resume
 from .forms import ProfileForm, CustomUserCreationForm
 
 
@@ -25,7 +26,7 @@ def login_user(request):
 
         if user is not None:
             login(request, user)
-            return redirect('profile')
+            return redirect('profiles')
         else:
             messages.error(request, 'Username or password incorrect')
 
@@ -68,26 +69,36 @@ def profiles(request):
 @login_required(login_url='login')
 def profile(request, pk):
     single_profile = get_object_or_404(Profile, id=pk)
-    context = {'profile': single_profile}
-    return render(request, 'users/form-profile.html', context)
+    resumes = Resume.objects.filter(owner=single_profile)
+    context = {'profile': single_profile, 'resumes': resumes}
+    return render(request, 'users/single-profile.html', context)
 
 
 @login_required(login_url='login')
-def edit_profile(request):
-    user_profile = request.user.profile
-    form = ProfileForm(instance=user_profile)
+def edit_account(request):
+    user_account_profile = request.user.profile
+    form = ProfileForm(instance=user_account_profile)
     if request.method == 'POST':
-        form = ProfileForm(request.POST or None, request.FILES, instance=user_profile)
+        form = ProfileForm(request.POST or None, request.FILES, instance=user_account_profile)
         if form.is_valid():
             form.save()
             return redirect('account')
 
-    context = {'form': form}
-    return render(request, 'users/form-profile.html', context)
+    context = {'form': form, 'profile':user_account_profile}
+    return render(request, 'users/profile-form.html', context)
 
 
 @login_required(login_url='login')
 def user_account(request):
     user_acc = request.user.profile
-    context = {'profile': user_acc}
+    resumes = user_acc.resume_set.all()
+    context = {'profile': user_acc, 'resumes': resumes}
     return render(request, 'users/account.html', context)
+
+
+@login_required(login_url='login')
+def user_profile(request, pk):
+    single_profile = get_object_or_404(Profile, id=pk)
+    resumes = Resume.objects.filter(owner=single_profile)
+    context = {'profile': single_profile, 'resumes': resumes}
+    return render(request, 'users/single-profile.html', context)
