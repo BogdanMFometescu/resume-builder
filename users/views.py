@@ -85,7 +85,7 @@ def edit_account(request):
             return redirect('account')
 
     context = {'form': form, 'profile':user_account_profile}
-    return render(request, 'users/profile-form.html', context)
+    return render(request, 'users/profile_form.html', context)
 
 
 @login_required(login_url='login')

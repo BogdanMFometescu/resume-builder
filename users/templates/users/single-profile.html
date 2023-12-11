@@ -9,7 +9,7 @@
                     <div class="card text-center">
                         <div class="card__body dev">
                             {%  if profile.profile_image %}
-                            <img class="avatar avatar--xl" src="{{ profile.profile_image }}" />
+                            <img class="avatar avatar--xl" src="{{ profile.profile_image }}"  alt="x"/>
                             {% endif %}
                             <h2 class="dev__name">{{ profile.name}}</h2>
                             <p class="dev__title">{{ profile.short_intro }}</p>

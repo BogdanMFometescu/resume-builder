@@ -37,11 +37,14 @@ def resume(request, pk):
 
 @login_required(login_url='login')
 def create_resume(request):
+    profile = request.user.profile
     form = ResumeForm()
     if request.method == 'POST':
         form = ResumeForm(request.POST or None, request.FILES)
         if form.is_valid():
-            form.save()
+            new_resume = form.save(commit=False)
+            new_resume.owner = profile
+            new_resume.save()
         else:
             print(form.errors)
         return redirect('resumes')
