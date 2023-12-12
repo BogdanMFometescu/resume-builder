@@ -44,6 +44,14 @@ including the PostgreSQL database settings.
 - POSTGRES_DATABASE_READY
 - DJANGO_SECRET_KEY
 
+To generate a new django secret key use the following command:
+```bash
+python manage.py shell
+from django.core.management.utils import get_random_secret_key
+print(get_random_secret_key())
+```
+
+
 5.Run database migrations:
 
   ```bash

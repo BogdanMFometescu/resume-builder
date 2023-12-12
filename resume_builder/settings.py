@@ -1,4 +1,3 @@
-
 import os
 from pathlib import Path
 import environ
@@ -8,9 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env()
 env.read_env(os.path.join(BASE_DIR / '.env'))
 
-
 SECRET_KEY = env('DJANGO_SECRET_KEY')
-
 
 DEBUG = str(env('DEBUG')) == '1'
 
@@ -61,7 +58,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'resume_builder.wsgi.application'
 
 # Database
-
 
 
 DB_NAME = env('POSTGRES_DATABASE_NAME')

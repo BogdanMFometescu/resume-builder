@@ -15,8 +15,8 @@
                 </label>
                 <ul class="header__menu">
                     {% if request.user.is_authenticated %}
+                         <li class="header__menuItem"><a href="{% url 'account' %}">Account</a></li>
                         <li class="header__menuItem"><a href="{% url 'resumes' %}">View Resumes</a></li>
-                        <li class="header__menuItem"><a href="{% url 'create-resume' %}">Create Resume</a></li>
                         <li class="header__menuItem"><a href="{% url 'logout' %}">Logout</a></li>
                     {% else %}
                         <li class="header__menuItem"><a href="{% url 'login' %}">Login/SignUp</a></li>

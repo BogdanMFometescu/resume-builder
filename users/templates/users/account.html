@@ -11,7 +11,7 @@
                                     class="im im-edit"></i> Edit</a>
                             {%  if profile.profile_image %}
                             <img class="avatar avatar--xl dev__avatar"
-                                 src="{{ profile.profile_image.url }}"/>
+                                 src="{{ profile.profile_image.url }}" alt="picture"/>
                             {%  endif %}
                             <h2 class="dev__name">{{ profile.name }}</h2>
                             <p class="dev__title">{{ profile.short_intro }}</p>
@@ -28,60 +28,27 @@
                         </p>
                     </div>
                     <div class="settings">
-                        <h3 class="settings__title">Certificates</h3>
-                        <a class="tag tag--pill tag--sub settings__btn tag--lg" href="{% url 'create-certificate' %}">
-                            <i class="im im-plus"></i> Add Certificate</a>
+                        <h3 class="settings__title">Resumes</h3>
+                        <a class="tag tag--pill tag--sub settings__btn tag--lg" href="{% url 'create-resume' %}">
+                            <i class="im im-plus"></i> Create Resume</a>
                     </div>
 
                     <table class="settings__table">
-                        {% for certificate in certificates %}
+                        {% for resume in resumes %}
                             <tr>
                                 <td class="settings__tableInfo">
 
-                                    <h4>{{ certificate }}</h4>
+                                    <h4>{{ resume.first_name }}</h4>
                                     <p>
-                                        {{ certificate.description }}
+                                        {{ resume.last_name }}
                                     </p>
                                 </td>
                                 <td class="settings__tableActions">
                                     <a class="tag tag--pill tag--main settings__btn"
-                                       href="{% url 'edit-certificate' certificate.id %}"><i class="im im-edit"></i>
+                                       href="{% url 'update' resume.id %}"><i class="im im-edit"></i>
                                         Edit</a>
                                     <a class="tag tag--pill tag--main settings__btn"
-                                       href="{% url 'delete-certificate' certificate.id %}"><i
-                                            class="im im-x-mark-circle-o"></i>
-                                        Delete</a>
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </table>
-
-
-                    <div class="settings">
-                        <h3 class="settings__title">Records</h3>
-                        <a class="tag tag--pill tag--sub settings__btn tag--lg" href="{% url 'create-record' %}"><i class="im im-plus"></i> Add
-                            Record</a>
-                    </div>
-
-                    <table class="settings__table">
-                        {% for record in records %}
-                            <tr>
-                                <td class="settings__thumbnail">
-                                    {%  if record.picture %}
-                                    <a href="{% url 'record' record.id%}"><img src="{{ record.picture.url }}"
-                                                                       alt="Project Thumbnail"/></a>
-                                    {%  endif %}
-                                </td>
-                                <td class="settings__tableInfo">
-                                    <a href="{% url 'record' record.id%}">{{ record.waste_name }}</a>
-                                    <p>
-                                        {{ record.waste_code }}
-                                    </p>
-                                </td>
-                                <td class="settings__tableActions">
-                                    <a class="tag tag--pill tag--main settings__btn" href="{% url 'update-record' record.id %}"><i class="im im-edit"></i>
-                                        Edit</a>
-                                    <a class="tag tag--pill tag--main settings__btn" href="{% url 'delete-record' record.id %}"><i
+                                       href="{% url 'delete' resume.id %}"><i
                                             class="im im-x-mark-circle-o"></i>
                                         Delete</a>
                                 </td>

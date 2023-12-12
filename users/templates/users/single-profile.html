@@ -12,29 +12,9 @@
                             <img class="avatar avatar--xl" src="{{ profile.profile_image }}"  alt="x"/>
                             {% endif %}
                             <h2 class="dev__name">{{ profile.name}}</h2>
-                            <p class="dev__title">{{ profile.short_intro }}</p>
                             <p class="dev__location">{{ profile.location }}</p>
                             <p class="dev__location"> {{ profile.email }}</p>
-                            <ul class="dev__social">
-                                <li>
-                                    <a title="Github" href="#" target="_blank"><i class="im im-github"></i></a>
-                                </li>
-                                <li>
-                                    <a title="Stackoverflow" href="#" target="_blank"><i class="im im-stackoverflow"></i></a>
-                                </li>
-                                <li>
-                                    <a title="Twitter" href="#" target="_blank"><i class="im im-twitter"></i></a>
-                                </li>
-                                <li>
-                                    <a title="LinkedIn" href="#" target="_blank"><i class="im im-linkedin"></i></a>
-                                </li>
-                                <li>
-                                    <a title="Personal Website" href="#" target="_blank"><i class="im im-globe"></i></a>
-                                </li>
-                            </ul>
 
-
-                            <a href="{%  url 'send-message' profile.id %}" class="btn btn--sub btn--lg">Send Message </a>
 
                         </div>
                     </div>
@@ -47,53 +27,22 @@
                         </p>
                     </div>
                     <div class="devInfo">
-                        <h3 class="devInfo__title">Certificates</h3>
-                        <div class="devInfo__skills">
-                            {% for certificate in top_certificates %}
-                            <div class="devSkill">
-                                <h4 class="devSkill__title">{{ certificate.name }}</h4>
-                                <p class="devSkill__info">
-                                   {{ certificate.description }}
-                                </p>
-                            </div>
-                            {% endfor %}
-
-                            <h3 class="devInfo__subtitle">Other Certificates</h3>
-                            <div class="devInfo__otherSkills">
-                            {%  for certificate in other_certificates %}
-                <span class="tag tag--pill tag--sub tag--lg">
-                  <small>{{ certificate }}</small>
-                </span>
-                            {% endfor %}
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="devInfo">
-                        <h3 class="devInfo__title">Records</h3>
+                        <h3 class="devInfo__title">Resumes</h3>
                         <div class="grid grid--two">
-                            {%  for record in profile.record_set.all %}
+                            {%  for resume in resumes %}
                             <div class="column">
                                 <div class="card project">
-                                    <a href="{% url 'record' record.id %}" class="project">
+                                    <a href="{% url 'resume' resume.id %}" class="project">
                                        <!-- <img class="project__thumbnail" src="images/project-b.png" alt="project thumbnail" />-->
                                         <div class="card__body">
-                                            <h3 class="project__title">{{ record.waste_name }}</h3>
-                                            <h3 class="project__title">{{ record.waste_code }}</h3>
+                                            <h3 class="project__title">{{ resume.first_name}}</h3>
+                                            <h3 class="project__title">{{ resume.last_name}}</h3>
                                             <p><a class="project__author" href="{%  url 'profiles' %}">{{ profile.name }}</a></p>
                                             <p class="project--rating">
-                                                <span style="font-weight: bold;">Record created on {{ record.created.date }}
+                                                <span style="font-weight: bold;">Record created on {{ resume.created }}
                                                 </span>
                                                 <br>
-                                                Quantity : {{ record.generated_quantity }} KG
                                             </p>
-                                            <div class="project__tags">
-                                                {%  for tag in record.tags.all %}
-                        <span class="tag tag--pill tag--main">
-                          <small>{{ tag }}</small>
-                        </span>
-                                                {% endfor %}
-                                            </div>
                                         </div>
                                     </a>
                                 </div>

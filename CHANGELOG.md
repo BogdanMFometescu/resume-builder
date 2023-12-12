@@ -4,6 +4,15 @@ Changelog for the resume-builder-app
 
 [11.12.2023]
 
+Version 0.3.2
+-
+- fixed the html links for all the views from users
+- added back button to all forms 
+
+
+
+[11.12.2023]
+
 Version 0.3.1
 -
 - added signals
