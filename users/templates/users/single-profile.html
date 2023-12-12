@@ -1,5 +1,5 @@
 {% extends 'main.html' %}
-{%  load static %}
+{% load static %}
 
 {% block content %}
     <main class="profile my-md">
@@ -8,10 +8,10 @@
                 <div class="column column--1of3">
                     <div class="card text-center">
                         <div class="card__body dev">
-                            {%  if profile.profile_image %}
-                            <img class="avatar avatar--xl" src="{{ profile.profile_image }}"  alt="x"/>
+                            {% if profile.profile_image %}
+                                <img class="avatar avatar--xl" src="{{ profile.profile_image.url }}" alt="x"/>
                             {% endif %}
-                            <h2 class="dev__name">{{ profile.name}}</h2>
+                            <h2 class="dev__name">{{ profile.name }}</h2>
                             <p class="dev__location">{{ profile.location }}</p>
                             <p class="dev__location"> {{ profile.email }}</p>
 
@@ -29,24 +29,21 @@
                     <div class="devInfo">
                         <h3 class="devInfo__title">Resumes</h3>
                         <div class="grid grid--two">
-                            {%  for resume in resumes %}
-                            <div class="column">
-                                <div class="card project">
-                                    <a href="{% url 'resume' resume.id %}" class="project">
-                                       <!-- <img class="project__thumbnail" src="images/project-b.png" alt="project thumbnail" />-->
-                                        <div class="card__body">
-                                            <h3 class="project__title">{{ resume.first_name}}</h3>
-                                            <h3 class="project__title">{{ resume.last_name}}</h3>
-                                            <p><a class="project__author" href="{%  url 'profiles' %}">{{ profile.name }}</a></p>
-                                            <p class="project--rating">
-                                                <span style="font-weight: bold;">Record created on {{ resume.created }}
+                            {% for resume in resumes %}
+                                <div class="column">
+                                    <div class="card project">
+                                        <a href="{% url 'resume' resume.id %}" class="project">
+                                            <div class="card__body">
+                                                <h3 class="project__title">{{ resume.first_name }} {{ resume.last_name }}</h3>
+                                                <p class="project--rating">
+                                                <span style="font-weight: bold;">Resume created on {{ resume.created }}
                                                 </span>
-                                                <br>
-                                            </p>
-                                        </div>
-                                    </a>
+                                                    <br>
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
                             {% endfor %}
 
                         </div>

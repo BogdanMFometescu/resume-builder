@@ -14,8 +14,10 @@
                                  src="{{ profile.profile_image.url }}" alt="picture"/>
                             {%  endif %}
                             <h2 class="dev__name">{{ profile.name }}</h2>
-                            <p class="dev__title">{{ profile.short_intro }}</p>
+                            <p class="dev__title">{{ profile.bio }}</p>
                             <p class="dev__location">{{ profile.location }}</p>
+                            <p class="dev__location">{{ profile.email }}</p>
+
 
                         </div>
                     </div>
@@ -37,7 +39,7 @@
                         {% for resume in resumes %}
                             <tr>
                                 <td class="settings__tableInfo">
-
+                                     <a href="{% url 'resume' resume.id %}" class="project">
                                     <h4>{{ resume.first_name }}</h4>
                                     <p>
                                         {{ resume.last_name }}

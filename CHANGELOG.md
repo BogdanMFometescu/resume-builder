@@ -8,6 +8,7 @@ Version 0.3.2
 -
 - fixed the html links for all the views from users
 - added back button to all forms 
+- implemented the search function for profiles
 
 
 

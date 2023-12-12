@@ -6,6 +6,8 @@ from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from .models import Profile
 from resume.models import Resume
+from .utils import search_profile
+
 from .forms import ProfileForm, CustomUserCreationForm
 
 
@@ -61,8 +63,8 @@ def register_user(request):
 
 @login_required(login_url='login')
 def profiles(request):
-    all_profiles = Profile.objects.all()
-    contex = {'profiles': all_profiles}
+    all_profiles,search_query = search_profile(request)
+    contex = {'profiles': all_profiles,'search_query':search_query}
     return render(request, 'users/profiles.html', contex)
 
 
