@@ -2,7 +2,15 @@
 
 Changelog for the resume-builder-app
 
-[11.12.2023]
+[13.12.2023]
+
+Version 0.3.3
+-
+- refactored the home.html  and single-resume.html
+- added footer 
+
+
+[12.12.2023]
 
 Version 0.3.2
 -

@@ -39,16 +39,21 @@
                 <div class="grid grid--three">
                     <div class="column card">
                         <div class="dev">
-                            <a href="{% static 'resume-templates/resume-template-01.html' %}" class="card__body">
+                            <a href="{% static 'resume-templates/resume-template-02.html' %}" class="card__body">
                                 <div class="dev__profile">
-                                    <img class="avatar avatar--md" src="{% static 'images/resume-01-picture.png' %}" alt="image"/>
+                                    <img class="avatar avatar--md" src="{% static 'images/resume-02-picture.png' %}"
+                                         alt="image"/>
                                     <div class="dev__meta">
-                                        <h3>Resume Template - Simple </h3>
-                                        <h5>A simple resume template</h5>
+                                        <h3>Simple Resume</h3>
                                     </div>
                                 </div>
                                 <p class="dev__info">
-                                    Create a simple resume
+                                    Begin your career journey with clarity and simplicity. Utilize our straightforward
+                                    layout to communicate your qualifications effectively. This template offers a clean,
+                                    no-frills approach that highlights your experience, education,
+                                    and skills in a clear, concise manner. Perfect for those who prefer a traditional
+                                    and understated design.
+
                                 </p>
 
                             </a>
@@ -56,17 +61,20 @@
                     </div>
                     <div class="column card">
                         <div class="dev">
-                            <a href="{% static 'resume-templates/resume-template-02.html' %}" class="card__body">
+                            <a href="{% static 'resume-templates/resume-template-01.html' %}" class="card__body">
                                 <div class="dev__profile">
-                                    <img class="avatar avatar--md" src="{% static 'images/resume-02-picture.png' %}"
+                                    <img class="avatar avatar--md" src="{% static 'images/resume-01-picture.png' %}"
                                          alt="image"/>
                                     <div class="dev__meta">
-                                        <h3>Resume Template - Modern</h3>
-                                        <h5>A modern resume template</h5>
+                                        <h3>Modern Resume</h3>
                                     </div>
                                 </div>
                                 <p class="dev__info">
-                                    Create a modern resume
+                                    Elevate your professional portfolio with our sleek, modern resume template.
+                                    Designed for the innovative individual, this layout combines stylish fonts and
+                                    strategic use of color to ensure your capabilities stand out. With an emphasis
+                                    on a clean structure and contemporary aesthetics, it's ideal for those looking to
+                                    make a bold statement in their field.
                                 </p>
 
                             </a>
@@ -80,5 +88,10 @@
 
 
     </main>
+    <footer class="footer">
+        <div class="container">
+            <p class="footer__text">© {% now "Y" %} FoBWare Software. All rights reserved.</p>
+        </div>
+    </footer>
     </body>
 {% endblock content %}

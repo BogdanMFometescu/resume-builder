@@ -7,7 +7,6 @@ from django.contrib import messages
 from .models import Profile
 from resume.models import Resume
 from .utils import search_profile
-
 from .forms import ProfileForm, CustomUserCreationForm
 
 
@@ -63,8 +62,8 @@ def register_user(request):
 
 @login_required(login_url='login')
 def profiles(request):
-    all_profiles,search_query = search_profile(request)
-    contex = {'profiles': all_profiles,'search_query':search_query}
+    all_profiles, search_query = search_profile(request)
+    contex = {'profiles': all_profiles, 'search_query': search_query}
     return render(request, 'users/profiles.html', contex)
 
 
@@ -86,7 +85,7 @@ def edit_account(request):
             form.save()
             return redirect('account')
 
-    context = {'form': form, 'profile':user_account_profile}
+    context = {'form': form, 'profile': user_account_profile}
     return render(request, 'users/profile_form.html', context)
 
 
