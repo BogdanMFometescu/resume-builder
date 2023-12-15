@@ -2,6 +2,16 @@
 
 Changelog for the resume-builder-app
 
+
+[15.12.2023]
+
+Version 0.3.4
+-
+[fixed] - simple and modern resume selection 
+
+
+
+
 [13.12.2023]
 
 Version 0.3.3
